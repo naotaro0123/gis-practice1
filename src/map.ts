@@ -1,6 +1,6 @@
 import L from "leaflet";
 
-export const setupMap = (element: HTMLDivElement) => {
+export const setupMap = (element: HTMLDivElement): L.Map => {
   // 地図インスタンス初期化
   const map = L.map(element, {
     center: [36.5, 137.1],
@@ -17,4 +17,6 @@ export const setupMap = (element: HTMLDivElement) => {
   );
   // 地図に背景レイヤーを追加
   map.addLayer(backgroundLayer);
+
+  return map;
 };
