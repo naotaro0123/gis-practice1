@@ -1,9 +1,13 @@
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 
+// leaflet.js
+// import { setupMap } from "./map";
 // import { setupMarkerMap } from "./marker-map";
 // import { setupMarkerMapFromJson } from "./marker-map-from-json";
 // import { setupPolygon } from "./polygon";
+
+// maplibre-gl.js
 import { setupMapLibreGlFromJson } from "./map-libre-gl";
 
 document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
@@ -11,13 +15,13 @@ document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
     <div id="map" style="height: 100vh;"></div>
   </div>
 `;
-
-// const map = setupMap(document.querySelector<HTMLDivElement>("#map")!);
-
-// setupMarkerMap(map);
-// setupMarkerMapFromJson(map, "./json/P29-21.geojson");
-
-// setupPolygon(map);
-
 const containerMap = document.querySelector<HTMLDivElement>("#map")!;
+
+// leaflet.js
+// const leafletMap = setupMap(containerMap);
+// setupMarkerMap(leafletMap);
+// setupMarkerMapFromJson(leafletMap);
+// setupPolygon(leafletMap);
+
+// maplibre-gl.js
 setupMapLibreGlFromJson(containerMap);
