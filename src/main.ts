@@ -2,7 +2,8 @@ import "leaflet/dist/leaflet.css";
 import "./style.css";
 
 import { setupMap } from "./map";
-import { setupMarkerMap } from "./marker-map";
+// import { setupMarkerMap } from "./marker-map";
+import { setupMarkerMapFromJson } from "./marker-map-from-json";
 
 document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
   <div>
@@ -11,4 +12,5 @@ document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
 `;
 
 const map = setupMap(document.querySelector<HTMLDivElement>("#map")!);
-setupMarkerMap(map);
+// setupMarkerMap(map);
+setupMarkerMapFromJson(map, "./json/P29-21.geojson");
