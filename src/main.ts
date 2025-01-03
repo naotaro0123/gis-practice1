@@ -1,10 +1,10 @@
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 
-import { setupMap } from "./map";
 // import { setupMarkerMap } from "./marker-map";
 // import { setupMarkerMapFromJson } from "./marker-map-from-json";
-import { setupPolygon } from "./polygon";
+// import { setupPolygon } from "./polygon";
+import { setupMapLibreGlFromJson } from "./map-libre-gl";
 
 document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
   <div>
@@ -12,9 +12,12 @@ document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
   </div>
 `;
 
-const map = setupMap(document.querySelector<HTMLDivElement>("#map")!);
+// const map = setupMap(document.querySelector<HTMLDivElement>("#map")!);
 
 // setupMarkerMap(map);
 // setupMarkerMapFromJson(map, "./json/P29-21.geojson");
 
-setupPolygon(map);
+// setupPolygon(map);
+
+const containerMap = document.querySelector<HTMLDivElement>("#map")!;
+setupMapLibreGlFromJson(containerMap);
