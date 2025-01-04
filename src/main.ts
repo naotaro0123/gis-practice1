@@ -9,7 +9,8 @@ import "./style.css";
 
 // maplibre-gl.js
 // import { setupMapLibreGlFromJson } from "./map-libre-gl";
-import { setupDisasterPreventionMap } from "./disaster-prevention-map";
+// import { setupDisasterPreventionMap } from "./disaster-prevention-map";
+import { setupMapLibreGl } from "./maplibre-map";
 
 document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
   <div>
@@ -27,4 +28,5 @@ const containerMap = document.querySelector<HTMLDivElement>("#map")!;
 // maplibre-gl.js
 // setupMapLibreGlFromJson(containerMap);
 
-setupDisasterPreventionMap(containerMap);
+// setupDisasterPreventionMap(containerMap);
+setupMapLibreGl(containerMap);
