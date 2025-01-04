@@ -8,7 +8,8 @@ import "./style.css";
 // import { setupPolygon } from "./polygon";
 
 // maplibre-gl.js
-import { setupMapLibreGlFromJson } from "./map-libre-gl";
+// import { setupMapLibreGlFromJson } from "./map-libre-gl";
+import { setupDisasterPreventionMap } from "./disaster-prevention-map";
 
 document.querySelector<HTMLDivElement>("#root")!.innerHTML = `
   <div>
@@ -24,4 +25,6 @@ const containerMap = document.querySelector<HTMLDivElement>("#map")!;
 // setupPolygon(leafletMap);
 
 // maplibre-gl.js
-setupMapLibreGlFromJson(containerMap);
+// setupMapLibreGlFromJson(containerMap);
+
+setupDisasterPreventionMap(containerMap);
