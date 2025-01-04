@@ -437,6 +437,11 @@ leaflet@^1.9.4:
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.4.tgz#23fae724e282fa25745aff82ca4d394748db7d8d"
   integrity sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==
 
+maplibre-gl-opacity@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/maplibre-gl-opacity/-/maplibre-gl-opacity-1.7.0.tgz#a686db18205a95cfa4fc88a4552a73c7183c315b"
+  integrity sha512-H25von0Ct4wVohntOo9EI2yIxUG5tWFKE+1rYoNZxnpKkgoWN/B5uO45NrLpdfRYWhGE/te8vBWG26ZzsKAyIQ==
+
 maplibre-gl@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/maplibre-gl/-/maplibre-gl-5.0.0.tgz#d9120b6ced7df5d1c791497f25bbe4edd5039d96"

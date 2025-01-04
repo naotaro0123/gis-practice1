@@ -17,6 +17,7 @@
     "@types/leaflet.markercluster": "^1.5.5",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
-    "maplibre-gl": "^5.0.0"
+    "maplibre-gl": "^5.0.0",
+    "maplibre-gl-opacity": "^1.7.0"
   }
 }
