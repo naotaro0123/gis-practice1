@@ -79,6 +79,33 @@ export const setupMapLibreGl = (container: HTMLElement) => {
         filter: ["==", "N07_001", "神奈川中央交通（株）"],
       });
     }
+
+    // Draw Polygon
+    {
+      const polygonFileName = "L05-1-09_14-g_IndustrialComplex";
+      map.addSource(polygonFileName, {
+        type: "geojson",
+        data: `./json/${polygonFileName}.geojson`,
+      });
+      map.addLayer({
+        id: polygonFileName,
+        type: "fill",
+        source: polygonFileName,
+        paint: {
+          "fill-color": "#FD7E00",
+          "fill-opacity": 0.8,
+        },
+      });
+      map.on("click", polygonFileName, (e) => {
+        const name = e.features?.[0].properties.L05_002;
+        new maplibregl.Popup({
+          closeButton: false,
+        })
+          .setLngLat(e.lngLat)
+          .setHTML(name)
+          .addTo(map);
+      });
+    }
   });
 
   const popup = new maplibregl.Popup({
