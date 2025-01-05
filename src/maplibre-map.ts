@@ -10,47 +10,75 @@ export const setupMapLibreGl = (container: HTMLElement) => {
   });
 
   map.on("load", async () => {
-    const iconImage = await map.loadImage("./img/icon.png");
-    const iconImageId = "facility_icon" as const;
-    map.addImage(iconImageId, iconImage.data);
-    // 国土数値情報データの刊行資源データ（神奈川）
-    // https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P12-2014.html
-    const fileId = "P12a-14_14";
+    // Point
+    {
+      const iconImage = await map.loadImage("./img/icon.png");
+      const iconImageId = "facility_icon" as const;
+      map.addImage(iconImageId, iconImage.data);
+      // 国土数値情報データの刊行資源データ（神奈川）
+      // https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P12-2014.html
+      const fileName = "P12a-14_14";
 
-    map.addSource(fileId, {
-      type: "geojson",
-      data: `./json/${fileId}.geojson`,
-    });
-    map.addLayer({
-      id: fileId,
-      type: "symbol",
-      source: fileId,
-      layout: {
-        "icon-image": iconImageId,
-        "icon-size": 0.1,
-      },
-    });
+      map.addSource(fileName, {
+        type: "geojson",
+        data: `./json/${fileName}.geojson`,
+      });
+      map.addLayer({
+        id: fileName,
+        type: "symbol",
+        source: fileName,
+        layout: {
+          "icon-image": iconImageId,
+          "icon-size": 0.1,
+        },
+      });
 
-    map.on("click", fileId, (e) => {
-      const geometry = e.features?.[0].geometry;
-      const name = e.features?.[0].properties.P12_002;
+      map.on("click", fileName, (e) => {
+        const geometry = e.features?.[0].geometry;
+        const name = e.features?.[0].properties.P12_002;
 
-      if (geometry !== undefined && "coordinates" in geometry) {
-        const coordinates = (geometry.coordinates as [number, number]).slice();
+        if (geometry !== undefined && "coordinates" in geometry) {
+          const coordinates = (
+            geometry.coordinates as [number, number]
+          ).slice();
 
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+
+          new maplibregl.Popup({
+            offset: 10,
+            closeButton: false,
+          })
+            .setLngLat(coordinates as [number, number])
+            .setHTML(name)
+            .addTo(map);
         }
+      });
+    }
 
-        new maplibregl.Popup({
-          offset: 10,
-          closeButton: false,
-        })
-          .setLngLat(coordinates as [number, number])
-          .setHTML(name)
-          .addTo(map);
-      }
-    });
+    // Draw Bus Line
+    {
+      const busLineFileName = "N07-22_14";
+      map.addSource(busLineFileName, {
+        type: "geojson",
+        data: `./json/${busLineFileName}.geojson`,
+      });
+      map.addLayer({
+        id: busLineFileName,
+        type: "line",
+        source: busLineFileName,
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#0067c0",
+          "line-width": 5,
+        },
+        filter: ["==", "N07_001", "神奈川中央交通（株）"],
+      });
+    }
   });
 
   const popup = new maplibregl.Popup({
