@@ -1,3 +1,11 @@
-# gis-practice2
+# gis-practice1
 
-maplibre や deck.gl を使って PLATEAU で横浜を描画したり、山の高さを等高線で描画した実験ソース
+「現場のプロがわかりやすく教える位置情報エンジニア養成講座」の練習コード
+
+[参考コード](https://github.com/Kanahiro/location-tech-sample-v1)
+
+[【初級編】MapLibre GL JS を使った WebGIS 作成](https://zenn.dev/asahina820/books/c29592e397a35b)
+
+[【初級編】MapLibre GL JS を使った WebGIS 作成](https://zenn.dev/asahina820/books/c29592e397a35b/viewer/724761)
+
+[【中級編】MapLibre GL JS を使った WebGIS 作成](https://zenn.dev/asahina820/books/071ba23476fdc4)
